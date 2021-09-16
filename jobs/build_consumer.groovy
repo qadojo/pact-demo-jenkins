@@ -3,7 +3,7 @@ job('pact-consumer-demo-build') {
     git('https://github.com/qadojo/pact-demo-consumer/')
   }
   steps {
-    sh('npm i')
-    sh('npm test')
+    shell('npm i')
+    shell('npm test')
   }
 }
