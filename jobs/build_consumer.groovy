@@ -24,7 +24,7 @@ job('pact-consumer-demo-build') {
     }
   }
   wrappers {
-    nodejs('NodeJS v16.9.1')
+    nodejs('v16.9.1')
   }
   steps {
     shell('npm i')
