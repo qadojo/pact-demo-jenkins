@@ -31,12 +31,8 @@ job('pact-demo-consumer-build') {
     credentialsBinding {
       usernamePassword('PACT_BROKER_USERNAME', 'PACT_BROKER_PASSWORD', 'pact-demo-broker')
     }
-    environmentVariables {
-      env('PACT_BROKER_URL', 'http://pact-broker:9292')
-    }
   }
   steps {
-    shell('echo "URL:"')
     shell('echo $PACT_BROKER_URL')
     shell('npm i')
     shell('npm test')
