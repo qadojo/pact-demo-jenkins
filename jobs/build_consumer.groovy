@@ -36,9 +36,10 @@ job('pact-demo-consumer-build') {
     }
   }
   steps {
+    shell('echo "URL:"')
+    shell('echo $PACT_BROKER_URL')
     shell('npm i')
     shell('npm test')
     shell('npm run pact:publish')
-    shell('echo $PACT_BROKER_URL')
   }
 }
