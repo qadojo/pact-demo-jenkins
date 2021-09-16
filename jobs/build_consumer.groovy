@@ -11,6 +11,7 @@ job('pact-demo-consumer-build') {
   triggers {
     githubPullRequest {
       admin('github-bot-qadojo')
+      userWhitelist('me@tuanviet.ru')
       useGitHubHooks()
       extensions {
         commitStatus {
