@@ -11,7 +11,7 @@ job('pact-demo-provider-build') {
   triggers {
     githubPullRequest {
       admin('github-bot-qadojo')
-      userWhitelist('0x06065a@gmail.com')
+      orgWhitelist('qadojo')
       useGitHubHooks()
       extensions {
         commitStatus {
