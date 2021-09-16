@@ -1,4 +1,4 @@
-job('pact-consumer-demo-build') {
+job('pact-demo-consumer-build') {
   scm {
     git {
       remote {
@@ -22,6 +22,9 @@ job('pact-consumer-demo-build') {
         }
       }
     }
+  }
+  logRotator {
+    daysToKeep(1)
   }
   wrappers {
     nodejs('v16.9.1')
