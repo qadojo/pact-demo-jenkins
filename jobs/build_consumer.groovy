@@ -15,7 +15,7 @@ job('pact-demo-consumer-build') {
       extensions {
         commitStatus {
           context('QADojo demo Jenkins')
-          statusUrl('https://jenkins.pact-demo.qadojo.ru/job/pact-demo-consumer-build/')
+          statusUrl('${BUILD_URL}')
           completedStatus('SUCCESS', 'Build succeed')
           completedStatus('FAILURE', 'Build failed')
           completedStatus('ERROR', 'Build failed')
