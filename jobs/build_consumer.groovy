@@ -36,6 +36,7 @@ job('pact-demo-consumer-build') {
     }
   }
   steps {
+    shell('git checkout $GIT_BRANCH')
     shell('npm i')
     shell('npm test')
     shell('npm run pact:publish')
