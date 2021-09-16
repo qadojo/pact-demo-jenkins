@@ -34,7 +34,6 @@ job('pact-demo-provider-build') {
     preBuildCleanup()
   }
   steps {
-    shell('git checkout $GIT_BRANCH')
     shell('npm i')
     shell('npm run pact:verify')
   }
