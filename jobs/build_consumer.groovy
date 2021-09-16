@@ -31,6 +31,9 @@ job('pact-demo-consumer-build') {
     credentialsBinding {
       usernamePassword('PACT_BROKER_USERNAME', 'PACT_BROKER_PASSWORD', 'pact-demo-broker')
     }
+    preBuildCleanup {
+      includePattern('pact/')
+    }
   }
   steps {
     shell('echo $PACT_BROKER_URL')
