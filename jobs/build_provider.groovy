@@ -1,8 +1,8 @@
-job('pact-demo-consumer-build') {
+job('pact-demo-provider-build') {
   scm {
     git {
       remote {
-        github('qadojo/pact-demo-consumer')
+        github('qadojo/pact-demo-provider')
         refspec('+refs/pull/*:refs/remotes/origin/pr/*')
       }
       branch('${sha1}')
@@ -15,7 +15,7 @@ job('pact-demo-consumer-build') {
       extensions {
         commitStatus {
           context('QADojo demo Jenkins')
-          statusUrl('http://localhost:8080/job/pact-demo-consumer-build/')
+          statusUrl('http://localhost:8080/job/pact-demo-provider-build/')
           completedStatus('SUCCESS', 'Build succeed')
           completedStatus('FAILURE', 'Build failed')
           completedStatus('ERROR', 'Build failed')
@@ -31,13 +31,10 @@ job('pact-demo-consumer-build') {
     credentialsBinding {
       usernamePassword('PACT_BROKER_USERNAME', 'PACT_BROKER_PASSWORD', 'pact-demo-broker')
     }
-    preBuildCleanup {
-      excludePattern('node_modules/')
-    }
+    preBuildCleanup()
   }
   steps {
     shell('npm i')
-    shell('npm test')
-    shell('npm run pact:publish')
+    shell('npm run pact:verify')
   }
 }
