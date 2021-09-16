@@ -1,4 +1,7 @@
 job('pact-demo-provider-build') {
+  parameters {
+    stringParam('sha1')
+  }
   scm {
     git {
       remote {
