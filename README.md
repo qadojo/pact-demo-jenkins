@@ -1,1 +1,1 @@
-# pact-demo-pipeline
+# Pact demo Jenkins files
