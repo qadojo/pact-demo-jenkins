@@ -42,4 +42,14 @@ job('pact-demo-consumer-build') {
     shell('npm test')
     shell('npm run pact:publish')
   }
+  publishers {
+    downstreamParameterized {
+      trigger('pact-demo-provider-build') {
+        condition('SUCCESS')
+        parameters {
+            predefinedProp('sha1', 'main')
+        }
+      }
+    }
+  }
 }
