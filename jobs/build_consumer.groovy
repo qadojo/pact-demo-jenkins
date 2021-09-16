@@ -38,5 +38,6 @@ job('pact-demo-consumer-build') {
   steps {
     shell('npm i')
     shell('npm test')
+    shell('npm pact:publish')
   }
 }
